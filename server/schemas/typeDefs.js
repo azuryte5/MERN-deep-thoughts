@@ -44,6 +44,7 @@ const typeDefs = gql`
   }
 
   type Query {
+    me: User
     users: [User]
     user(username: String!): User
     thoughts(username: String): [Thought]
@@ -51,10 +52,18 @@ const typeDefs = gql`
   }
   
   type Mutation {
-    login(email: String!, password: String!): User
-    addUser(username: String!, email: String!, password: String!): User
+    login(email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
+    addThought(thoughtText: String!): Thought
+    addReaction(thoughtId: ID!, reactionBody: String!): Thought
+    addFriend(friendId: ID!): User
+  }
+
+  type Auth {
+    token: ID!
+    user: User
   }
 `;
-// Mutation added in 21.2
+// Mutation added in 21.2, Mutation : user -> Auth
 // export the typeDefs
 module.exports = typeDefs;
