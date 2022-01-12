@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ReactionList = ({ reactions }) => {
-    console.log({reactions})
   return (
 <div className="card mb-3">
   <div className="card-header">

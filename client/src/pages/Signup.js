@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import Auth from '../utils/auth';
-
-//added in 21.5.3
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
+
+import Auth from '../utils/auth';
 
 const Signup = () => {
   const [formState, setFormState] = useState({ username: '', email: '', password: '' });
 
-
+  const [addUser, { error }] = useMutation(ADD_USER);
   // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -18,7 +17,7 @@ const Signup = () => {
       [name]: value,
     });
   };
-  const [addUser, { error }] = useMutation(ADD_USER);
+
 
 
   // submit form
