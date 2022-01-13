@@ -23,13 +23,12 @@ class AuthService {
         return false;
     }
 }
-
-getToken() {
+    getToken() {
     // Retrieves the user token from localStorage
     return localStorage.getItem('id_token');
   }
   // set token to localStorage and reload page to homepage
-  login(idToken) {
+    login(idToken) {
     // Saves user token to localStorage
     localStorage.setItem('id_token', idToken);
 
